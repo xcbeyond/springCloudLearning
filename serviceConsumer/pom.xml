@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.xcbeyond.springcloud.service.consumer</groupId>
+	<artifactId>serviceConsumer</artifactId>
+	<name>serviceConsumer</name>
+	<url>http://maven.apache.org</url>
+	
+	<description>消费者</description>
+	
+	<parent>
+		<groupId>com.xcbeyond.springcloud</groupId>
+		<artifactId>springCloudLearning</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<dependencies>
+		<dependency>
+	        <groupId>org.springframework.cloud</groupId>
+	        <artifactId>spring-cloud-starter-openfeign</artifactId>
+	        <version>${openfeign.version}</version>
+    	</dependency>
+	</dependencies>
+	
+</project>

@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.xcbeyond.springcloud</groupId>
+	<artifactId>springCloudLearning</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
+	
+	<name>springCloudLearning</name>
+	<url>http://maven.apache.org</url>
+	
+	<description>微服务系列</description>
+
+	<!-- 使用modules标签实现模块化项目管理 -->
+	<modules>
+		<!-- 服务注册中心。 (Eureka Server)-->
+		<module>springCloudEureka</module>
+		<!-- 配置中心 -->
+		<module>springCloudConfigServer</module>
+		<!-- zuul网关 -->
+		<module>springCloudZuulGateway</module>
+		<!-- 服务监控 -->
+		<module>springCloudMonitor</module>
+		<!-- 服务提供者。(Eureka Client) -->
+		<module>springCloudEurekaClient</module>
+		<!-- 服务提供者 -->
+		<module>serviceProvider</module>
+		<module>serviceConsumer</module>
+		
+	</modules>
+	
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.0.RELEASE</version>
+		<relativePath/>
+	</parent>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 镜像前缀，推送镜像到远程库时需要 -->
+	    <docker.image.prefix>springCloud</docker.image.prefix>
+	    <!-- docker镜像的tag -->
+	    <docker.tag>v1</docker.tag>
+	    
+	    <!-- 父项目统一维护各依赖包的版本，便于后续升级等 -->
+	    <eureka-server.version>2.0.0.RELEASE</eureka-server.version>
+	    <eureka-client.version>2.0.0.RELEASE</eureka-client.version>
+	    <config-server.version>2.0.0.RELEASE</config-server.version>
+	    <!-- spring-cloud-starter-config -->
+	    <config.version>2.0.0.RELEASE</config.version>
+	    <!-- spring-cloud-starter-zuul -->
+	    <zuul.version>1.4.5.RELEASE</zuul.version>
+	    <!-- spring-cloud-starter-openfeign -->
+	    <openfeign.version>2.0.0.RELEASE</openfeign.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- eureka-client依赖包 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<version>${eureka-client.version}</version>
+		</dependency>
+		
+		<!-- 配置中心客户端依赖包 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-config</artifactId>
+			<version>${config.version}</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	
+</project>
