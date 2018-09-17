@@ -1,5 +1,3 @@
-server:
-  port: 8889
 spring:
   application:
     name: config-client
@@ -11,10 +9,3 @@ spring:
       name: config-client
       #远程仓库的分支
       label: master
-      
-eureka:
-  client:
-    serviceUrl:
-      #服务注册中心地址，需按照注册中心IP进行对应修改
-      defaultZone: http://register-center:8761/eureka/
-
