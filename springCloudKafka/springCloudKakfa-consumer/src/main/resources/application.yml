@@ -1,0 +1,28 @@
+server:
+  port: 1002
+
+eureka:
+  client:
+    serviceUrl:
+      #服务注册中心地址，需按照注册中心IP进行对应修改
+      defaultZone: http://register-center:8761/eureka/
+
+spring:
+  application:
+    name: kakfa-consumer
+    
+# kafka配置信
+  kafka:
+      #kafka地址
+      bootstrap-servers: kafka:9092
+      consumer:
+          #设置一个默认组
+          group-id: test-group
+          #key-value序列化反序列化
+          key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+          value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      producer:
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: org.apache.kafka.common.serialization.StringSerializer
+          batch-size: 65536
+          buffer-memory: 524288

@@ -25,3 +25,11 @@ Zuul大部分功能都是通过过滤器来实现的。Zuul中定义了四种标
 * ERROR：在其他阶段发生错误时执行该过滤器。</br>
  	除了默认的过滤器类型，Zuul还允许我们创建自定义的过滤器类型。例如，我们可以定制一种STATIC类型的过滤器，直接在Zuul中生成响应，而不将请求转发到后端的微服务。
 请参考前置过滤器PreZuulFilter
+
+## springCloudKafka
+springCloud集成kafka
+|序号		| 项目名						|端口		|说明			|
+|:---	|:---						|:---	|:---		|
+|1		|springCloudKafka-producer	|1001	|kafka生产者	|	
+|2		|springCloudKakfa-consumer	|1002	|kafka消费者	|
+

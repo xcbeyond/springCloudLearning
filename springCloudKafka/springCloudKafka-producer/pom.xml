@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>com.xcbeyond.springcloud.kafka.producer</groupId>
+	<artifactId>springCloudKafka-producer</artifactId>
+	<name>springCloudKafka-producer</name>
+	<url>http://maven.apache.org</url>
+	
+	<description>kafka生产者.通过kafka发送消息。</description>
+	
+	<parent>
+		<groupId>com.xcbeyond.springcloud.kafka</groupId>
+		<artifactId>springCloudKafka</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<!-- 打包配置 -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	
+</project>
