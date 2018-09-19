@@ -27,7 +27,8 @@ Zuul大部分功能都是通过过滤器来实现的。Zuul中定义了四种标
 请参考前置过滤器PreZuulFilter
 
 ## springCloudKafka
-springCloud集成kafka
+springCloud集成kafka</br>
+
 |序号		| 项目名						|端口		|说明			|
 |:---	|:---						|:---	|:---		|
 |1		|springCloudKafka-producer	|1001	|kafka生产者	|	
