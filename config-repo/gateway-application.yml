@@ -1,0 +1,30 @@
+#当前服务器端口
+server:
+  port: 8111
+
+#注册中心配置
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://register-center:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+ribbon:
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+
+#路由微服务
+zuul:
+  routes:
+    #路由微服务
+    test:
+      path: /**
+      #后端的配置既可以是”serviceId”(对于服务发现中的服务), 也可以是”url”(物理地址), 
+      service-id: service-provider
+    #路由天气预报
+    #网关访问格式：http://ip:port/api/weather/json.shtml?city=西安
+    weather:
+      path: /api/weather/**
+      #天气预报 API接口:https://www.sojson.com/open/api/weather/json.shtml?city=%s
+      url: https://www.sojson.com/open/api/weather/
