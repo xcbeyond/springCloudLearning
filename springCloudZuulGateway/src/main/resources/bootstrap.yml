@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    #配置中心配置
+    config:
+      label: master
+      name: gateway-application
+      #配置中心服务地址(config-center为主机名，需在hosts中配置实际ip)
+      uri: http://config-center:8888

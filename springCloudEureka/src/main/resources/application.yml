@@ -1,0 +1,18 @@
+server:
+  #当前Eureka服务器端口
+  port: 8761
+spring:
+  application:
+    name: register-center
+    
+eureka:
+  instance:
+    #服务注册中心实例的主机名
+    hostname: register-center
+    prefer-ip-address: true
+  client:
+    #Eureka集群时，下述两个参数不要配置
+    #是否检索服务,默认值为true
+    fetchRegistry: false
+    #是否向服务注册中心注册自己,默认值为true
+    registerWithEureka: false

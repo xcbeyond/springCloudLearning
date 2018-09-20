@@ -15,7 +15,7 @@
 	<parent>
 		<groupId>com.xcbeyond.springcloud</groupId>
 		<artifactId>springCloudLearning</artifactId>
-		<version>1.0</version>
+		<version>${project.version}</version>
 	</parent>
 
 	<properties>
@@ -50,8 +50,8 @@
 	<!-- 打包配置 -->
 	<build>
 		<defaultGoal>install</defaultGoal>
-		<!-- build后的文件名，默认值是${artifactId}-${version}。  -->
-    	<finalName>gateway-${version}</finalName>
+		<!-- build后的文件名，默认值是${artifactId}-${version}。 -->
+    	<finalName>gateway-${project.version}</finalName> 
     
 		<plugins>
 			<plugin>

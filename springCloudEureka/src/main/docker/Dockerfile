@@ -1,4 +1,6 @@
 FROM java:8
-ADD /register-center-0.0.1-SNAPSHOT.jar //
+RUN mkdir /microservice
+WORKDIR /microservice
+ADD /register-center-1.0.jar /microservice/
 EXPOSE 8761
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/register-center-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/microservice/register-center-1.0.jar"]

@@ -1,4 +1,6 @@
 FROM java:8
-ADD /config-center-0.0.1-SNAPSHOT.jar //
+RUN mkdir /microservice
+WORKDIR /microservice
+ADD /config-center-1.0.jar /microservice/
 EXPOSE 8888
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/config-center-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/microservice/config-center-1.0.jar"]

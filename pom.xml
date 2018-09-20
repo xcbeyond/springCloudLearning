@@ -5,7 +5,7 @@
 
 	<groupId>com.xcbeyond.springcloud</groupId>
 	<artifactId>springCloudLearning</artifactId>
-	<version>1.0</version>
+	<version>${project.version}</version>
 	<packaging>pom</packaging>
 	
 	<name>springCloudLearning</name>
@@ -40,6 +40,8 @@
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 项目全局版本号 -->
+		<project.version>1.0</project.version>
 		<!-- 镜像前缀，推送镜像到远程库时需要 -->
 	    <docker.image.prefix>springCloud</docker.image.prefix>
 	    <!-- docker镜像的tag -->

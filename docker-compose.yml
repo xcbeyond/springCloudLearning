@@ -1,0 +1,52 @@
+version: '2'
+services:
+     #注册中心
+     #自定义的服务名称
+     register-center: 
+       #镜像名称
+       image: register-center:v1
+       #容器名称
+       container_name: register-center
+       #容器down掉后，会自动重启
+       restart: always
+       #挂载一个目录或者一个已存在的数据卷容器。格式为宿主机目录：容器内目录      
+#       volumes:
+#            - $PWD/register-center/register-center-1.0.jar:/microservice/
+       #映射端口。格式为宿主机端口：容器端口
+       ports:
+            - "8761:8761"
+       #容器启动后，执行的命令
+       command: java -Djava.security.egd=file:/dev/./urandom -jar /microservice/register-center-1.0.jar
+       
+     #配置中心
+     config-center: 
+       image: config-center:v1
+       container_name: config-center
+       restart: always
+#       volumes:
+#            - $PWD/config-center/config-center-1.0.jar:/microservice/
+       ports:
+            - "8888:8888"
+       command: java -Djava.security.egd=file:/dev/./urandom -jar /microservice/config-center-1.0.jar
+       depends_on:
+            - register-center 
+       links:
+            - register-center:register-center
+     
+     #网关服务
+     gateway: 
+       image: gateway:v1
+       container_name: gateway
+       restart: always
+#       volumes:
+#            - $PWD/gateway/gateway-1.0.jar:/microservice/
+       ports:
+            - "8111:8111"
+       #容器启动后，执行的命令
+       command: java -Djava.security.egd=file:/dev/./urandom -jar /microservice/gateway-1.0.jar
+       depends_on:
+            - register-center
+            - config-center
+       links:
+            - register-center:register-center
+            - config-center:config-center

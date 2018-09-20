@@ -1,0 +1,29 @@
+#注册中心配置
+eureka:
+  client:
+    serviceUrl:
+      #服务注册中心地址，需按照注册中心IP进行对应修改(register-center为主机名，需在hosts中配置实际ip)
+      defaultZone: http://register-center:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+server:
+  port: 8888
+spring:
+  application:
+    name: config-center
+  cloud:
+    #配置中心配置
+    config:
+      #配置仓库的分支
+      label: master
+      server:
+        git:
+          #配置git仓库地址
+          uri: https://github.com/xcbeyond/springCloudLearning.git
+          #配置仓库路径
+          search-paths: config-repo
+          #访问git仓库的用户名.如果Git仓库为公开仓库，可以不填写用户名和密码，如果是私有仓库需要填写
+#          username: xxx
+          #访问git仓库的用户密码
+#          password: xxx
