@@ -1,0 +1,36 @@
+server:
+  #当前服务器端口
+  port: 8889
+
+spring:
+  #认证配置
+  security:
+    user:
+      name: admin
+      password: 123456
+
+#注册中心配置
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      #服务注册中心地址，需按照注册中心IP进行对应修改
+      defaultZone: http://register-center:8761/eureka/
+  instance:
+    health-check-url-path: /actuator/health
+    #心跳时间，即服务续约间隔时间（缺省为30s）
+    leaseRenewalIntervalInSeconds: 10
+    metadata-map:
+      user:
+        name: ${spring.security.user.name}
+        password: ${spring.security.user.password}
+    prefer-ip-address: true
+
+management:
+  endpoint:
+    health:
+      show-details: ALWAYS
+  endpoints:
+    web:
+      exposure:
+        include: '*'
