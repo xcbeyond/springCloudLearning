@@ -50,3 +50,17 @@ services:
        links:
             - register-center:register-center
             - config-center:config-center
+            
+     #监控
+     monitor: 
+       image: monitor:v1
+       container_name: monitor
+       restart: always
+       ports:
+            - "8889:8889"
+       command: java -Djava.security.egd=file:/dev/./urandom -jar /microservice/monitor-1.0.jar
+       depends_on:
+            - config-center
+       links:
+            - register-center:register-center
+            - config-center:config-center

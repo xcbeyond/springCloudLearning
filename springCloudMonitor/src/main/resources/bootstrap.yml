@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: monitor
+  cloud:
+    #配置中心配置
+    config:
+      label: master
+      name: monitor-application
+      uri: http://config-center:8888

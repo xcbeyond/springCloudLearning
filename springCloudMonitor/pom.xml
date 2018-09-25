@@ -105,7 +105,7 @@
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<!-- build后的文件名，默认值是${artifactId}-${version}。  -->
-    	<finalName>monitor-${version}</finalName>
+    	<finalName>monitor-1.0</finalName>
     	
 		<plugins>
 			<plugin>
