@@ -1,4 +1,6 @@
 FROM java:8
-ADD /service-provider-0.0.1-SNAPSHOT.jar //
+RUN mkdir /microservice
+WORKDIR /microservice
+ADD /service-provider-1.0.jar /microservice/
 EXPOSE 8001
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/service-provider-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/microservice/service-provider-1.0.jar"]

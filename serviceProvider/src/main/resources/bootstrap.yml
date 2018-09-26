@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: service-provider
+  cloud:
+    #配置中心配置
+    config:
+      label: master
+      name: service-provider-application
+      uri: http://config-center:8888
+
+#加密参数
+#jasypt.encryptor.password: ${JASYPT_ENCRYPTOR_PASSWORD}

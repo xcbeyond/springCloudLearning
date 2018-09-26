@@ -64,3 +64,17 @@ services:
        links:
             - register-center:register-center
             - config-center:config-center
+            
+     #服务提供者
+     service-provider: 
+       image: service-provider:v1
+       container_name: service-provider
+       restart: always
+       ports:
+            - "8001:8001"
+       command: java -Djava.security.egd=file:/dev/./urandom -jar /microservice/service-provider-1.0.jar
+       depends_on:
+            - config-center
+       links:
+            - register-center:register-center
+            - config-center:config-center
